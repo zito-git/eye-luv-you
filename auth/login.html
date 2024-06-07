@@ -4,21 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      body {
+      * {
         font-family: "Noto Sans KR", sans-serif;
       }
     </style>
+    <script>
+      function loginRegex(input) {
+        const id = document.getElementById("military_id");
+        const err = document.getElementById("id-error-message");
+        const password = document.getElementById("password");
+
+        let regex = /^\d{2}-\d{8}$/;
+        if (!regex.test(input.value)) {
+          err.style.display = "block";
+          err.textContent = "올바르지 않은 군번입니다.";
+          password.style.marginTop = "0.05rem";
+          id.style.borderColor = "#E53E3E";
+        } else {
+          id.style.borderColor = "#DADDE1";
+          err.style.display = "none";
+          password.style.marginTop = "1.25rem";
+        }
+      }
+
+      function submit() {
+        const id = document.getElementById("military_id").value;
+        const pw = document.getElementById("password").value;
+      }
+    </script>
   </head>
   <body>
     <logo class="flex items-center justify-center">
       <img
-        src="./asset/elu-logo.svg"
+        src="../assets/elu-logo.svg"
         class="mt-[105px] mb-[21px] h-[150px] w-[150px]"
         alt=""
       />
@@ -32,10 +56,11 @@
     </ul>
 
     <div class="flex flex-col items-center justify-center gap-6">
-      <div class="flex flex-col items-center justify-center gap-4">
+      <div class="flex flex-col items-center justify-center">
         <div class="flex flex-col">
           <input
-            id="military-id"
+            onkeyup="loginRegex(this)"
+            id="military_id"
             type="text"
             placeholder="군번을 입력하세요."
             class="border border-[#DADDE1] placeholder:text-[#C0C6CE] placeholder:text-[14px] rounded-[4px] w-[345px] p-3 focus:border-[#444444] focus:outline-none"
@@ -50,7 +75,7 @@
             id="password"
             type="password"
             placeholder="비밀번호를 입력하세요."
-            class="border border-[#DADDE1] placeholder:text-[#C0C6CE] placeholder:text-[14px] rounded-[4px] w-[345px] p-3 focus:border-[#444444] focus:outline-none"
+            class="border border-[#DADDE1] mt-4 placeholder:text-[#C0C6CE] placeholder:text-[14px] rounded-[4px] w-[345px] p-3 focus:border-[#444444] focus:outline-none"
           />
           <span
             id="pw-error-message"
@@ -68,13 +93,20 @@
           로그인하기
         </button>
         <ul class="flex items-center justify-center gap-7">
-          <li class="text-[13px] text-[#999999] cursor-pointer">
+          <li
+            class="text-[13px] text-[#999999] cursor-pointer"
+            onclick="location.href='/auth/find_pass.html'"
+          >
             비밀번호 찾기
           </li>
-          <li class="text-[13px] text-[#999999] cursor-pointer">회원가입</li>
+          <li
+            class="text-[13px] text-[#999999] cursor-pointer"
+            onclick="location.href='register.html'"
+          >
+            회원가입
+          </li>
         </ul>
       </div>
     </div>
   </body>
-  <script src="./index.js"></script>
 </html>
