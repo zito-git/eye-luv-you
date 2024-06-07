@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원 가입</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      .disabled {
+        background-color: #e6e6e7;
+        cursor: not-allowed;
+      }
+      .abled {
+        background-color: #dc5788;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <div class="w-6 h-6 my-3 ml-4 cursor-pointer">
+      <a href="/index.html">
+        <img src="./asset/back-icon.svg" alt="" />
+      </a>
+    </div>
+
+    <div class="mt-8 mx-4 text-[18px] font-medium flex flex-col">
+      <p>군번과 비밀번호를</p>
+      <p>입력해 주세요.</p>
+    </div>
+
+    <div>
+      <div class="mt-8 mx-4 gap-1 flex flex-col">
+        <p class="text-[14px] font-medium">군번</p>
+        <input
+          id="phoneInput"
+          type="text"
+          placeholder="군번을 입력해 주세요"
+          class="border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
+        />
+        <span
+          id="id-error-message"
+          class="error text-[#E53E3E] text-[12px]"
+        ></span>
+      </div>
+
+      <div class="mt-8 mx-4 gap-1 flex flex-col">
+        <p class="text-[14px] font-medium">비밀번호</p>
+        <input
+          id="password"
+          type="password"
+          placeholder="영문, 숫자, 특수문자 조합 (8자 이상)"
+          class="border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
+        />
+        <span
+          id="error-message"
+          class="error text-[#E53E3E] text-[12px]"
+        ></span>
+      </div>
+
+      <div class="mt-8 mx-4 gap-1 flex flex-col">
+        <p class="text-[14px] font-medium">비밀번호 확인</p>
+        <input
+          id="password"
+          type="password"
+          placeholder="비밀번호 재입력"
+          class="border-b border-[#E6E6E7] py-3 placeholder:text-[#BABABA] placeholder:text-[16px] focus:border-[#DC5788] focus:outline-none"
+        />
+        <span
+          id="error-message"
+          class="error text-[#E53E3E] text-[12px]"
+        ></span>
+      </div>
+    </div>
+
+    <div class="flex place-items-baseline justify-center mt-auto mb-2">
+        <button id="nextBtn" type="submit" class="w-full mx-4 rounded-md text-[#FFFFFF] text-[15px] p-4 disabled">
+          다음
+        </button>
+      </div>
+  </body>
+</html>
